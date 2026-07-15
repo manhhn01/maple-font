@@ -533,6 +533,8 @@ feature calt {
   lookup greater_greater.liga {
     ignore sub [less slash greater] greater' greater;
     ignore sub greater' greater greater;
+    sub greater' greater dollar by SPC;
+    sub SPC greater' by greater_greater.liga;
     sub @QuoteLike SPC greater' @QuoteLike by greater_greater.liga;
     sub @QuoteLike greater' greater @QuoteLike by SPC;
     sub SPC greater' [slash @Number @EqualHyphen] by greater_greater.liga;
@@ -1790,6 +1792,200 @@ feature cv10 {
 
 } cv10;
 
+feature cv11 {
+
+  cvParameters {
+    FeatUILabelNameID {
+      name "CV11: Alternative f with bottom bar";
+    };
+  };
+
+  sub f by f.cv11;
+
+} cv11;
+
+feature cv31 {
+
+  cvParameters {
+    FeatUILabelNameID {
+      name "CV31: [Italic Only] Alternative italic a with top arm";
+    };
+  };
+
+  # Placeholder
+  sub EMquad by space;
+
+} cv31;
+
+feature cv32 {
+
+  cvParameters {
+    FeatUILabelNameID {
+      name "CV32: [Italic Only] Alternative Italic f without bottom tail";
+    };
+  };
+
+  # Placeholder
+  sub EMquad by space;
+
+} cv32;
+
+feature cv33 {
+
+  cvParameters {
+    FeatUILabelNameID {
+      name "CV33: [Italic Only] Alternative Italic i and j with left bottom bar and horizen top bar";
+    };
+  };
+
+  # Placeholder
+  sub EMquad by space;
+
+} cv33;
+
+feature cv34 {
+
+  cvParameters {
+    FeatUILabelNameID {
+      name "CV34: [Italic Only] Alternative Italic k without center circle";
+    };
+  };
+
+  # Placeholder
+  sub EMquad by space;
+
+} cv34;
+
+feature cv35 {
+
+  cvParameters {
+    FeatUILabelNameID {
+      name "CV35: [Italic Only] Alternative Italic l without center tail";
+    };
+  };
+
+  # Placeholder
+  sub EMquad by space;
+
+} cv35;
+
+feature cv36 {
+
+  cvParameters {
+    FeatUILabelNameID {
+      name "CV36: [Italic Only] Alternative Italic x without top and bottom tails";
+    };
+  };
+
+  # Placeholder
+  sub EMquad by space;
+
+} cv36;
+
+feature cv37 {
+
+  cvParameters {
+    FeatUILabelNameID {
+      name "CV37: [Italic Only] Alternative Italic y with straight intersection";
+    };
+  };
+
+  # Placeholder
+  sub EMquad by space;
+
+} cv37;
+
+feature cv38 {
+
+  cvParameters {
+    FeatUILabelNameID {
+      name "CV38: [Italic Only] Alternative italic g in double story style";
+    };
+  };
+
+  # Placeholder
+  sub EMquad by space;
+
+} cv38;
+
+feature cv39 {
+
+  cvParameters {
+    FeatUILabelNameID {
+      name "CV39: [Italic Only] Alternative Italic i without bottom bar";
+    };
+  };
+
+  # Placeholder
+  sub EMquad by space;
+
+} cv39;
+
+feature cv40 {
+
+  cvParameters {
+    FeatUILabelNameID {
+      name "CV40: [Italic Only] Alternative italic J without top bar";
+    };
+  };
+
+  # Placeholder
+  sub EMquad by space;
+
+} cv40;
+
+feature cv41 {
+
+  cvParameters {
+    FeatUILabelNameID {
+      name "CV41: [Italic Only] Alternative italic r with bottom bar";
+    };
+  };
+
+  # Placeholder
+  sub EMquad by space;
+
+} cv41;
+
+feature cv42 {
+
+  cvParameters {
+    FeatUILabelNameID {
+      name "CV42: [Italic Only] Alternative italic 7 with middle bar";
+    };
+  };
+
+  # Placeholder
+  sub EMquad by space;
+
+} cv42;
+
+feature cv43 {
+
+  cvParameters {
+    FeatUILabelNameID {
+      name "CV43: [Italic Only] Alternative italic Z and z with middle bar";
+    };
+  };
+
+  # Placeholder
+  sub EMquad by space;
+
+} cv43;
+
+feature cv44 {
+
+  cvParameters {
+    FeatUILabelNameID {
+      name "CV44: [Italic Only] Alternative Italic f with bottom bar";
+    };
+  };
+
+  # Placeholder
+  sub EMquad by space;
+
+} cv44;
+
 feature cv61 {
 
   cvParameters {
@@ -1868,6 +2064,24 @@ feature cv65 {
   sub ampersand_ampersand_ampersand.liga.cv01 by ampersand_ampersand_ampersand.liga.cv65;
 
 } cv65;
+
+feature cv66 {
+
+  cvParameters {
+    FeatUILabelNameID {
+      name "CV66: Alternative pipe arrows";
+    };
+  };
+
+  sub bar_bar_greater.liga by bar_bar_greater.liga.cv66;
+  sub less_bar_bar.liga by less_bar_bar.liga.cv66;
+  sub less_bar.liga by less_bar.liga.cv66;
+  sub bar_greater.liga by bar_greater.liga.cv66;
+  sub less_bar_greater.liga by less_bar_greater.liga.cv66;
+  sub bar_bar_bar_greater.liga by bar_bar_bar_greater.liga.cv66;
+  sub less_bar_bar_bar.liga by less_bar_bar_bar.liga.cv66;
+
+} cv66;
 
 feature ss01 {
 
@@ -2060,6 +2274,17 @@ feature ss05 {
   sub backslash.liga by backslash;
 
 } ss05;
+
+feature ss06 {
+
+  featureNames {
+    name "SS06: [Italic Only]$$$Break connected strokes between italic letters";
+  };
+
+  # Placeholder
+  sub EMquad by space;
+
+} ss06;
 
 feature ss07 {
 

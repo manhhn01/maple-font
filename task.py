@@ -20,11 +20,6 @@ def main():
     feature_parser.add_argument(
         "--output", type=str, default="./source/features", help="Output directory"
     )
-    feature_parser.add_argument(
-        "--cn",
-        action="store_true",
-        help="Generate features that contains CN features, remove exists CN feature files if not set",
-    )
 
     release_parser = command.add_parser("release", help="Release new version")
     release_parser.add_argument(
@@ -42,10 +37,14 @@ def main():
     page_parser.add_argument(
         "--woff2", action="store_true", help="Generate new woff2 fonts"
     )
-    page_parser.add_argument("--commit", action="store_true", help="Commit changes")
+    page_parser.add_argument(
+        "--sync", action="store_true", help="Sync latest page data and commit"
+    )
 
     cn = command.add_parser("cn", help="Rebuild CN static font")
-    cn.add_argument("--pull", action="store_true", help="pull the latest CN source files")
+    cn.add_argument(
+        "--pull", action="store_true", help="pull the latest CN source files"
+    )
     cn.add_argument("--rebuild", action="store_true", help="rebuild the CN static font")
 
     publish_parser = command.add_parser(
@@ -57,6 +56,8 @@ def main():
         help="Write changelog to release note file (auto write in CI)",
     )
 
+    command.add_parser("merge", help="Merge and instantiate fonts")
+
     args = parser.parse_args()
     if args.command == "nf":
         from source.py.task.nerdfont import nerd_font
@@ -66,7 +67,7 @@ def main():
     elif args.command == "fea":
         from source.py.task.fea import fea
 
-        fea(args.output, args.cn)
+        fea(args.output)
 
     elif args.command == "release":
         from source.py.task.release import release
@@ -75,7 +76,7 @@ def main():
     elif args.command == "page":
         from source.py.task.page import page
 
-        page("./maple-font-page", "./fonts/Variable", args.woff2, args.commit)
+        page("./maple-font-page", "./fonts/Variable", args.woff2, args.sync)
     elif args.command == "cn":
         from source.py.task.cn import cn
 
@@ -84,6 +85,10 @@ def main():
         from source.py.task.publish import publish
 
         publish(args.write)
+    elif args.command == "merge":
+        from source.py.task.merge_font import main
+
+        main()
     else:
         print("Test only")
         from source.py.in_browser import main

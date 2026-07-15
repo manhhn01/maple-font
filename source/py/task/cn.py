@@ -46,7 +46,8 @@ def flatten_italic_fonts(italic_tmp_dir: str, target_dir: str):
 def optimize_cn_base(f: str, base_dir: str):
     font_path = joinPaths(base_dir, f)
     print(f"✨ Optimize {font_path}")
-    system(f"ftcli font correct-contours {font_path}")
+    # Skip optimization for wrong shape in some glyphs like `熊`:
+    # system(f"ftcli font correct-contours {font_path}")
     system(
         f"ftcli font del-table -t kern -t GPOS {font_path}",
     )
@@ -75,7 +76,7 @@ def cn(cn_root: str, pull: bool = False, rebuild: bool = False):
             url=f"https://{github_mirror}/subframe7536/maple-font/releases/download/cn-base/vfc.zip",
             zip_path="vfc.zip",
             output_dir=cn_root,
-            remove_zip=True
+            remove_zip=True,
         )
         return
 

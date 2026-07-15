@@ -95,9 +95,14 @@ __locl_cn_only = [
     lookup_tw.use(),
 ]
 
+
 def get_locl_feature_list(cn: bool, cn_only: bool = False):
     if not cn:
         return [ast.Feature("locl", __locl, "7.0")]
 
     content = __locl_cn_only if cn_only else __locl + __locl_cn_only
-    return [lookup_tw, ast.Feature("locl", content, "7.0")]
+    return [
+        lookup_tw,
+        ast.Feature("locl", content, "7.0"),
+        ast.Feature("cpct", lookup_tw.use(), "8.0"),
+    ]
